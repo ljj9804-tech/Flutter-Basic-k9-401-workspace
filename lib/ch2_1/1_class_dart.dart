@@ -21,7 +21,11 @@ void main() {
   // 인스턴스를 생성할 때는 함수를 실행하는 것처럼
   // 인스턴스화하고 싶은 클래스에 괄호를 열고 닫아줍니다.
   Idol blackPink = Idol();  // ➊ Idol 인스턴스 생성
+  Idol seventeen = Idol();
+  seventeen.name = '세븐틴입니다.~~';
 
   // 메서드를 실행합니다.
   blackPink.sayName();
+  seventeen.sayName();
+
 }
