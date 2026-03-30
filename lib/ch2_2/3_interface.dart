@@ -33,7 +33,7 @@ class GirlGroup implements Idol {
 }
 
 void main() {
-  GirlGroup redVelvet = GirlGroup('블랙핑크', 4);
+  GirlGroup redVelvet = GirlGroup('레드벨벳', 5);
 
   redVelvet.sayName();
   redVelvet.sayMembersCount();

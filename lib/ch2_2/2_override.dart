@@ -22,10 +22,10 @@ class GirlGroup extends Idol {
       );
 
   // ❶ override 키워드를 사용해 오버라이드 합니다.
-  @override
-  void sayName() {
-    print('저는 여자 아이돌 ${this.name}입니다.');
-  }
+  // @override
+  // void sayName() {
+  //   print('저는 여자 아이돌 ${this.name}입니다.');
+  // }
 }
 
 class BoyGroup extends Idol {
