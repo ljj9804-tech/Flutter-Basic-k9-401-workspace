@@ -5,7 +5,7 @@ void main() {
   final stream = controller.stream;  // Stream 가져오기
 
   // Stream에 listen() 함수를 실행하면 값이 주입될 때마다 콜백 함수를 실행할 수 있습니다.
-  final streamListener1 = stream.listen((val) {
+  final streamListener1 = stream.listen((val) { // 익명 함수로 정의가 되어 있음.
     print(val);
   });
 
