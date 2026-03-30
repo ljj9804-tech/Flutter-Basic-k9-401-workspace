@@ -28,12 +28,41 @@ class GirlGroup extends Idol {
   }
 }
 
+class BoyGroup extends Idol {
+
+  // ❷ 상속받은 생성자
+  BoyGroup(
+      String name,
+      int membersCount,
+      ) :  super(   // super는 부모 클래스를 지칭합니다.
+    name,
+    membersCount,
+  );
+
+  // ❸ 상속받지 않은 기능
+  void sayMale() {
+    print('저는 남자 아이돌입니다.');
+  }
+
+  @override
+  void sayMembersCount() {
+    print('${this.name} 멤버는 ${this.membersCount}명입니다. 재정의 메서드입니다.');
+  }
+}
+
 void main() {
-  GirlGroup redVelvet = GirlGroup('블랙핑크', 4);
+  GirlGroup redVelvet = GirlGroup('레드벨벳', 5);
 
   redVelvet.sayName(); // ❶ 자식 클래스의 오버라이드된 메서드 사용
 
   // sayMembersCount는 오버라이드하지 않았기 때문에
   // 그대로 Idol 클래스의 메서드가 실행됩니다.
   redVelvet.sayMembersCount(); // ❷ 부모 클래스의 메서드 사용
+
+  BoyGroup seventeen = BoyGroup('세븐틴', 13);  // 생성자로 객체 생성
+
+  seventeen.sayName();          // ❶ 부모한테 물려받은 메서드
+  seventeen.sayMembersCount();  // ❷ 부모한테 물려받은 메서드
+  seventeen.sayMale();          // ❸ 자식이 새로 추가한 메서드
+
 }
