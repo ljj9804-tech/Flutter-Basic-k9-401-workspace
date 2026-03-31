@@ -1,27 +1,28 @@
-// 1. 플러터의 머티리얼 디자인(Material Design)
-// UI 위젯들을 사용하기 위해 패키지를 불러옵니다.
 import 'package:flutter/material.dart';
 
-// 2. 앱이 실행될 때 가장 먼저 호출되는 진입점(Entry Point) 함수입니다.
 void main() {
-  // 3. runApp()은 플러터 프레임워크에게
-  // "이 위젯을 화면에 그려라"라고 명령하는 함수입니다.
-  runApp(
-    // 4. MaterialApp: 머티리얼 디자인 스타일의
-    // 앱을 만들기 위한 최상위 껍데기(설정) 위젯입니다.
-    MaterialApp(
-      // 5. home: 앱이 실행될 때
-      // 가장 먼저 화면에 보여줄 기본 위젯을 지정합니다.
-      // 6. Scaffold: 앱의 기본 화면 구조(도화지 역할)를 잡아주는 위젯입니다.
+  // 1. main 함수는 단순히 MyApp이라는 위젯을 실행하는 역할만 합니다.
+  runApp(MyApp());
+}
+
+// 2. 화면의 구조를 정의하는 새로운 위젯 클래스를 만듭니다.
+// (상태가 변하지 않는 StatelessWidget)
+class MyApp extends StatelessWidget {
+
+  // 3. 바로 이 build() 함수가 핫 리로드의 핵심입니다!
+  // 코드를 수정하고 저장하면, 플러터는 main()이 아닌
+  // 이 build() 함수만 다시 실행합니다.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        // 7. body: 화면의 메인 콘텐츠가 들어갈 공간입니다.
-        body: Center(  // 8. Center: 자식(child) 위젯을 화면의 정중앙에 배치하는 레이아웃 위젯입니다.
-          // 9. child: Center 위젯 안에 들어갈 단일 자식 위젯을 지정합니다.
-          child: Text( // 10. Text: 화면에 글자를 보여주는 위젯입니다.
-            '!!오늘 점심 뭐먹죠? 텍스트 변경하고, 화면을 변경, 핫리로드 클릭.~~ ',
+        body: Center(
+          child: Text(
+            // 이 글자를 수정해 보세요.
+            '이제 핫 리로드가 완벽하게 작동합니다!',
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
