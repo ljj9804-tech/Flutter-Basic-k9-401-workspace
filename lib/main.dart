@@ -1,66 +1,122 @@
-import 'dart:io';
+import 'package:flutter/material.dart';
 
 void main() {
-  Map<String, int> students = {};
+  runApp(const MyApp());
+}
 
-  while (true) {
-    print("\n📌 학생 관리 시스템 (CRUD)");
-    print("1. 추가(Create)");
-    print("2. 조회(Read)");
-    print("3. 수정(Update)");
-    print("4. 삭제(Delete)");
-    print("5. 검색(Search)");
-    print("6. 정렬(Sort)");
-    print("7. 종료(Exit)");
-    stdout.write("원하는 작업을 선택하세요: ");
-    String? choice = stdin.readLineSync();
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-    switch (choice) {
-      case '1':
-        stdout.write("학생 이름 입력: ");
-        String? name = stdin.readLineSync();
-        stdout.write("점수 입력: ");
-        int? score = int.tryParse(stdin.readLineSync() ?? '');
-        if (name != null && score != null) {
-          students[name] = score;
-          print("$name 학생이 추가되었습니다.");
-        }
-        break;
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // TRY THIS: Try running your application with "flutter run". You'll see
+        // the application has a purple toolbar. Then, without quitting the app,
+        // try changing the seedColor in the colorScheme below to Colors.green
+        // and then invoke "hot reload" (save your changes or press the "hot
+        // reload" button in a Flutter-supported IDE, or press "r" if you used
+        // the command line to start the app).
+        //
+        // Notice that the counter didn't reset back to zero; the application
+        // state is not lost during the reload. To reset the state, use hot
+        // restart instead.
+        //
+        // This works for code too, not just values: Most code changes can be
+        // tested with just a hot reload.
+        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
 
-      case '2':
-        students.forEach((name, score) => print("이름: $name, 점수: $score"));
-        break;
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
 
-      case '3':
-        stdout.write("수정할 학생 이름: ");
-        String? name = stdin.readLineSync();
-        if (students.containsKey(name)) {
-          stdout.write("새 점수: ");
-          int? newScore = int.tryParse(stdin.readLineSync() ?? '');
-          if (newScore != null) students[name!] = newScore;
-        }
-        break;
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
 
-      case '4':
-        stdout.write("삭제할 학생 이름: ");
-        String? name = stdin.readLineSync();
-        students.remove(name);
-        break;
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
 
-      case '5':
-        stdout.write("검색할 학생 이름: ");
-        String? name = stdin.readLineSync();
-        print(students.containsKey(name) ? "${students[name]}점" : "없음");
-        break;
+  final String title;
 
-      case '6':
-        var sorted = students.entries.toList()
-          ..sort((a, b) => a.value.compareTo(b.value));
-        for (var e in sorted) print("${e.key}: ${e.value}");
-        break;
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
 
-      case '7':
-        return;
-    }
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      appBar: AppBar(
+        // TRY THIS: Try changing the color here to a specific color (to
+        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        // change color while the other colors stay the same.
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          //
+          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+          // action in the IDE, or press "p" in the console), to see the
+          // wireframe for each widget.
+          mainAxisAlignment: .center,
+          children: [
+            const Text('You have pushed the button this many times:'),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }
