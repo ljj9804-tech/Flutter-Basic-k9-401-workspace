@@ -64,6 +64,11 @@ class _LoginScreen2State extends State<LoginScreen2> {
                 onPressed:() => _showResultDialog(),
                 child: const Text('로그인'),
               ),
+              ElevatedButton(
+                // 단순 화면 이동 버튼 테스트
+                onPressed:() => Navigator.pushNamed(context, '/details'),
+                child: const Text('임시 상세페이지 이동'),
+              ),
             ],
           ),
         ),

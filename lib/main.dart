@@ -1,3 +1,4 @@
+import 'package:busanit_401_k9_flutter_project/screen/basic2-miniproject/DetailsScreen.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic2-miniproject/LoginScreen.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic2-miniproject/LoginScreen2.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic2-miniproject/MainScreen.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         '/main':    (context) => const MainScreen(),
         '/signup':  (context) => const SignupScreen(),
         '/login':   (context) => const LoginScreen2(),
-        // '/details': (context) => const DetailsScreen(),
+        '/details': (context) => const DetailsScreen(),
       },
     );
   }
