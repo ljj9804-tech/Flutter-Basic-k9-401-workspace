@@ -15,6 +15,21 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _isChineseSelected = false;    // 체크박스: 중식 상태
   bool _isJapaneseSelected = false;   // 체크박스: 일식 상태
 
+  //========================================================
+  // 이메일과 패스워드의 값을 제어하는 컨트롤러 선언
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  // 함수추가, 메모리 누수를 방지하는 컨트롤러 해제 함수
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  //========================================================
+
   // 알림 메시지(SnackBar) 출력 함수
   void _showToast(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -64,10 +79,16 @@ class _SignupScreenState extends State<SignupScreen> {
           child: ListView( // 입력 창이 많아지면 키보드에 가려질 수 있으므로 스크롤 가능한 ListView 사용
             children: [
               // [TextField] 글자 입력창
-              const TextField(decoration: InputDecoration(labelText: '이메일')),
+              TextField(
+                // 컨트롤러 연결
+                controller: _emailController,
+                  decoration: InputDecoration(labelText: '이메일')
+              ),
               const SizedBox(height: 16),
               // const TextField(decoration: InputDecoration(labelText: '패스워드')),
-              const TextField(
+              TextField(
+                // 컨트롤러 연결
+                controller: _passwordController,
                 // [핵심] 입력되는 텍스트를 가릴지 여부를 결정합니다.
                 obscureText: true,
 
@@ -163,8 +184,33 @@ class _SignupScreenState extends State<SignupScreen> {
                   if (_isChineseSelected) food += '중식 ';
                   if (_isJapaneseSelected) food += '일식 ';
 
-                  _showToast(context,
-                      '성별: ${_selectedGender ?? "선택 안됨"}\n선호 음식: ${food.isEmpty ? "선택 안됨" : food}');
+                  // _showToast(context,
+                  //     '성별: ${_selectedGender ?? "선택 안됨"}\n선호 음식: ${food.isEmpty ? "선택 안됨" : food}');
+                  // 화면 중앙에 다이얼로그 뛰우기 작업.
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: const Text('가입 정보 확인'),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min, // 내용만큼만 높이 차지
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('이메일: ${_emailController.text}'),
+                            Text('패스워드: ${_passwordController.text}'), // 마스킹 없이 실제값 출력됨
+                            Text('성별: ${_selectedGender ?? "선택 안됨"}'),
+                            Text('선호 음식: ${food.isEmpty ? "선택 안됨" : food}'),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context), // 창 닫기
+                            child: const Text('확인'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 },
                 child: const Text('회원 가입'),
               ),
