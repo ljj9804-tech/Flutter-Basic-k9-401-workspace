@@ -68,29 +68,26 @@ class DetailsScreen extends StatelessWidget {
             // 수정, Expanded 제거하고,
             // 내부 리스트에 shrinkWrap: true와
             // physics: const NeverScrollableScrollPhysics()를 추가하여 부모 스크롤에 포함시키기
-            SizedBox(
-              height: 300,
-              child: ListView.builder(
-                // shrinkWrap: true, // [중요] 내부 리스트가 필요한 만큼만 높이 차지
-                // physics: const NeverScrollableScrollPhysics(), // [중요] 부모 스크롤 사용
-                padding: const EdgeInsets.all(8),
-                itemCount: 15,
-                itemBuilder: (context, index) {
-                  return Card( // 카드 형태의 디자인 적용
-                    child: ListTile(
-                      leading: const Icon(Icons.notifications_active, color: Colors.blue),
-                      title: Text('[$index] Flutter 수업 안내'),
-                      subtitle: const Text('내일은 리스트뷰 심화 과정입니다.'),
-                      onTap: () {
-                        // 클릭 시 피드백 알림
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('$index번 공지를 확인했습니다.')),
-                        );
-                      },
-                    ),
-                  );
-                },
-              ),
+            ListView.builder(
+              shrinkWrap: true, // [중요] 내부 리스트가 필요한 만큼만 높이 차지
+              physics: const NeverScrollableScrollPhysics(), // [중요] 부모 스크롤 사용
+              padding: const EdgeInsets.all(8),
+              itemCount: 15,
+              itemBuilder: (context, index) {
+                return Card( // 카드 형태의 디자인 적용
+                  child: ListTile(
+                    leading: const Icon(Icons.notifications_active, color: Colors.blue),
+                    title: Text('[$index] Flutter 수업 안내'),
+                    subtitle: const Text('내일은 리스트뷰 심화 과정입니다.'),
+                    onTap: () {
+                      // 클릭 시 피드백 알림
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('$index번 공지를 확인했습니다.')),
+                      );
+                    },
+                  ),
+                );
+              },
             ),
             //리스트 뷰 빌더 예시 복사
 
@@ -99,6 +96,7 @@ class DetailsScreen extends StatelessWidget {
             // 이미지를 이용해보기,
             buildHorizontalImageList("샘플이미지 리스트뷰2"),
             // 리스트뷰 복사3
+            buildHorizontalImageList("샘플이미지 리스트뷰2-2"),
 
             // 리스트뷰 복사2
             SizedBox(

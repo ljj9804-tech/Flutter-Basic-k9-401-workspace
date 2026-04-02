@@ -27,9 +27,15 @@ class MainScreen extends StatelessWidget {
               onPressed: () => Navigator.pushNamed(context, '/signup'),
               child: const Text('회원 가입'),
             ),
+            const SizedBox(height: 20),
             OutlinedButton(
               onPressed: () => Navigator.pushNamed(context, '/login'),
               child: const Text('로그인'),
+            ),
+            const SizedBox(height: 20),
+            OutlinedButton(
+              onPressed: () => Navigator.pushNamed(context, '/tabMenuTest'),
+              child: const Text('탭 메뉴 연습'),
             ),
           ],
         ),
