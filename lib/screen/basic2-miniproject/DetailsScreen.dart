@@ -81,6 +81,38 @@ class DetailsScreen extends StatelessWidget {
               ),
             ),
             //리스트 뷰 빌더 예시 복사
+
+            // 리스트뷰 복사2
+            Expanded(
+              child: ListView.builder(
+                itemCount: 20, // 총 20개의 아이템을 만들겠다!
+                itemBuilder: (context, index) {
+                  // index는 0부터 19까지 자동으로 증가합니다.
+                  return ListTile(
+                    leading: CircleAvatar(child: Text('${index + 1}')),
+                    title: Text('$index번 수강생님, 환영합니다!'),
+                    subtitle: Text('오늘도 열공하세요.'),
+                    trailing: Icon(Icons.check),
+                  );
+                },
+              ),
+            ),
+            // 리스트뷰 복사2
+
+            // 리스트뷰 복사3
+            Expanded(
+              child: ListView.separated(
+                itemCount: 10,
+                itemBuilder: (context, index) => ListTile(title: Text('아이템 $index')),
+                // 각 아이템 사이에 들어갈 위젯을 정해줍니다.
+                separatorBuilder: (context, index) => const Divider(
+                  thickness: 1,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            // 리스트뷰 복사3
+
             Expanded(
               child: ListView(
                 children: List.generate(
