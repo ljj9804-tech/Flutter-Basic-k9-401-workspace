@@ -8,31 +8,33 @@ import 'main_4_초기메인_백업용-스테이트풀용-동적화면.dart';
 
 void main() {
 
-  //프로바이더 패턴1, 단일프로바이더
-  // runApp(
-  //   // ChangeNotifierProvider: 위젯 트리 전체에 상태 공급
-  //   // create: Provider 인스턴스 생성
-  //   ChangeNotifierProvider(
-  //     create: (_) => CounterProvider(),
-  //     child: const RoutingScreen(),
-  //   ),
-  // );
+  // // 아래에 있는 미니 프로젝트 화면. -> 파일 분리
+  // runApp(const RoutingScreen());
 
-  //프로바이더 패턴2, 멀티프로바이더
+  // //프로바이더 패턴1, 단일프로바이더
   runApp(
-    // MultiProvider: 여러 개의 Provider를 한 번에 등록
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => CounterProvider()),
-        ChangeNotifierProvider(create: (_) => FoodController()),
-
-      ],
+    // ChangeNotifierProvider: 위젯 트리 전체에 상태 공급
+    // create: Provider 인스턴스 생성
+    ChangeNotifierProvider(
+      create: (_) => CounterProvider(),
       child: const RoutingScreen(),
     ),
   );
 
-  // // 아래에 있는 미니 프로젝트 화면. -> 파일 분리
-  // runApp(const RoutingScreen());
+  //프로바이더 패턴2, 멀티프로바이더
+  // runApp(
+  //   // MultiProvider: 여러 개의 Provider를 한 번에 등록
+  //   MultiProvider(
+  //     providers: [
+  //       ChangeNotifierProvider(create: (_) => CounterProvider()),
+  //       ChangeNotifierProvider(create: (_) => FoodController()),
+  //
+  //     ],
+  //     child: const RoutingScreen(),
+  //   ),
+  // );
+
+
 
   // 플러터를 최초에 실행시, 만들어준 화면,
   // 스테이트풀 설명하기에 가장 간단한 위젯.

@@ -33,6 +33,8 @@ class CounterScreen extends StatelessWidget {
             // 버튼을 누를 때마다 위의 '시간' 텍스트도 같이 변하는 것을 볼 수 있습니다.
             // ==============================================================
             Text(
+              // 매우 중요함. !!!, 구독중, 누구를 ?
+              // 순서3, 구독하고 있는 화면이, 응답을 받고서, 그림을 다시 그리기.
               '${context.watch<CounterProvider>().count}',
               style: const TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
             ),
@@ -64,6 +66,8 @@ class CounterScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 16),
                 ElevatedButton(
+                  // 이벤트 처리시 동작 흐름. 순서1
+                  // 증가 이벤트 함수를 호출하기.
                   onPressed: () => context.read<CounterProvider>().increment(),
                   child: const Icon(Icons.add),
                 ),
