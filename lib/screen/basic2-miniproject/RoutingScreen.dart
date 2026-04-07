@@ -5,6 +5,7 @@ import 'package:busanit_401_k9_flutter_project/screen/basic3-http/_4_public_data
 import 'package:busanit_401_k9_flutter_project/screen/basic4-provider/screens/CounterScreen.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_1_FoodData/screens/my_pd_test_screen.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_2_TourData/screens/tour_screen.dart';
+import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_3_TourData_Pagination_Cursor_Based/screens/tour_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -46,6 +47,9 @@ class RoutingScreen extends StatelessWidget {
         '/providerTest': (context) => const CounterScreen(),
         '/providerTestPdTest': (context) => const MyPdTestScreen(),
         '/providerTestPdTest2': (context) => const TourScreen(),
+        '/providerTestPdTest3': (context) => const TourScreen2(),
+
+
       },
     );
   }
