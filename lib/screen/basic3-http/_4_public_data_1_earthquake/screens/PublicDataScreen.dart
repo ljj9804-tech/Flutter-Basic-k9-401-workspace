@@ -35,8 +35,8 @@ class _PublicDataScreenState extends State<PublicDataScreen> {
 
     setState(() {
       _earthquakeFuture = EarthquakeApiService.fetchEarthquakes(
-        fromTmFc: _formatDate(threeDaysAgo),
-        toTmFc: _formatDate(now),
+        // fromTmFc: _formatDate(threeDaysAgo),
+        // toTmFc: _formatDate(now),
       );
     });
   }

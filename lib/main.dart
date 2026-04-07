@@ -2,6 +2,7 @@ import 'package:busanit_401_k9_flutter_project/screen/basic2-miniproject/Routing
 import 'package:busanit_401_k9_flutter_project/screen/basic4-provider/providers/CounterProvider.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_1_FoodData/controller/food_controller.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_2_TourData/controller/tour_controller.dart';
+import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_3_TourData_Pagination_Cursor_Based/controller/tour_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,6 +32,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => FoodController()),
         // 공공데이터, 부산명소 , 상태 클래스 등록
         ChangeNotifierProvider(create: (_) => TourController()),
+        ChangeNotifierProvider(create: (_) => TourController2()),
 
       ],
       child: const RoutingScreen(),
