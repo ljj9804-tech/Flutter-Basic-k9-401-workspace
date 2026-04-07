@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import '../model/tour_item.dart';
 
@@ -19,7 +20,8 @@ class TourController with ChangeNotifier {
     notifyListeners();
 
     final queryParams = {
-      'serviceKey': '본인키', // ⚠️ 본인 인증키 입력
+      // 'serviceKey': '본인키', // ⚠️ 본인 인증키 입력
+      'serviceKey':  dotenv.env['PUBLIC_DATA_SERVICE_KEY'] ?? '',
       'pageNo':    '1',
       'numOfRows': '100',
       'resultType': 'json',

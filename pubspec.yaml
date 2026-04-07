@@ -39,6 +39,13 @@ dependencies:
   dio: ^5.3.3         # 고급 HTTP 클라이언트 (선택)
   #추가
   provider: ^6.1.2   # Provider 패키지
+  #추가
+  geolocator: ^11.0.0        # GPS 위치 정보
+  permission_handler: ^11.3.0 # 권한 요청
+  google_maps_flutter: ^2.6.0   # Google Maps
+  #추가
+  flutter_dotenv: ^5.1.0   # .env 파일 로드
+
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +73,7 @@ flutter:
   assets:
 #    - assets/images/logo.png # 하나의 이미지만 등록하기.
     - assets/images/ # 폴더 내의 모든 파일을 등록(추천)
+    - .env
 #    - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

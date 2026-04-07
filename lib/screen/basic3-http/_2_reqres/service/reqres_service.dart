@@ -1,11 +1,14 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import '../model/reqres_user.dart';
 
 
 class ReqresService {
   static const String _baseUrl = 'https://reqres.in/api/users';
-  static const String _apiKey = '본인의 api 키'; // ← 추가
+  // static const String _apiKey = '본인키'; // ← 추가
+  static final String _apiKey = dotenv.env['REQRES_API_DATA_SERVICE_KEY'] ?? '';
+
 
   // 특정 페이지의 사용자 목록 가져오기 (1페이지당 6명)
   static Future<List<ReqresUser>> fetchUsers({int page = 1}) async {

@@ -6,6 +6,10 @@ import 'package:busanit_401_k9_flutter_project/screen/basic4-provider/screens/Co
 import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_1_FoodData/screens/my_pd_test_screen.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_2_TourData/screens/tour_screen.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic5-provider-pdData/_3_TourData_Pagination_Cursor_Based/screens/tour_screen.dart';
+import 'package:busanit_401_k9_flutter_project/screen/basic6-map/basic1-provider-version/screens/location_screen.dart';
+import 'package:busanit_401_k9_flutter_project/screen/basic6-map/basic1/screens/location_screen.dart';
+import 'package:busanit_401_k9_flutter_project/screen/basic6-map/basic2-googlePlaces-Provider/screens/map_screen.dart';
+import 'package:busanit_401_k9_flutter_project/screen/basic6-map/basic2-googlePlaces/screens/map_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -48,6 +52,10 @@ class RoutingScreen extends StatelessWidget {
         '/providerTestPdTest': (context) => const MyPdTestScreen(),
         '/providerTestPdTest2': (context) => const TourScreen(),
         '/providerTestPdTest3': (context) => const TourScreen2(),
+        '/mapBasic1': (context) => const LocationScreen(),
+        '/mapBasic2': (context) => const LocationScreen2(),
+        '/mapBasic3': (context) => const MapScreen(),
+        '/mapBasic4': (context) => const MapScreen2(),
 
 
       },

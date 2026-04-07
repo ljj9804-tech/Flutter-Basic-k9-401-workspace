@@ -86,6 +86,22 @@ class MainScreen extends StatelessWidget {
               onPressed: () => Navigator.pushNamed(context, '/providerTestPdTest3'),
               child: const Text('커서기반 무한 스크롤페이지네이션 테스트 4, 공공데이터 부산관광명소'),
             ),
+            OutlinedButton(
+              onPressed: () => Navigator.pushNamed(context, '/mapBasic1'),
+              child: const Text('위치기반 서비스 기본1_현재 위치에서 시청까지 거리'),
+            ),
+            OutlinedButton(
+              onPressed: () => Navigator.pushNamed(context, '/mapBasic2'),
+              child: const Text('위치기반 서비스 기본2_프로바이더 버전'),
+            ),
+            OutlinedButton(
+              onPressed: () => Navigator.pushNamed(context, '/mapBasic3'),
+              child: const Text('위치기반 서비스 기본3 구글 플레이스1'),
+            ),
+            OutlinedButton(
+              onPressed: () => Navigator.pushNamed(context, '/mapBasic4'),
+              child: const Text('위치기반 서비스 기본4 구글 플레이스2'),
+            ),
 
           ],
         ),

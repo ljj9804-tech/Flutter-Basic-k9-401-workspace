@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import '../model/tour_item.dart';
 
@@ -64,7 +65,8 @@ class TourController2 with ChangeNotifier {
   // 🔴 [변경됨] 4. 실제 API와 통신하는 공통 내부 메서드로 분리 (기존 로직 이동)
   Future<void> _fetchPage(int page) async {
     final queryParams = {
-      'serviceKey': '본인키', // 본인 인증키
+      // 'serviceKey': '본인키', // 본인 인증키
+      'serviceKey':  dotenv.env['PUBLIC_DATA_SERVICE_KEY'] ?? '',
       'pageNo':    page.toString(),         // 🔴 파라미터가 동적으로 변하도록 수정 ('1' -> page.toString())
       'numOfRows': _pageSize.toString(),    // 🔴 100개 고정에서 페이지 사이즈(10개) 변수로 수정
       'resultType': 'json',

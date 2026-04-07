@@ -1,11 +1,13 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import '../models/news_article.dart';
 
 class NewsService {
   // newsapi.org 무료 Developer 키 발급
   // https://newsapi.org/register
-  static const String _apiKey = '본인의 api 키';
+  // static const String _apiKey = '본인키';
+  static final String _apiKey = dotenv.env['NEWS_API_DATA_SERVICE_KEY'] ?? '';
   static const String _baseUrl = 'https://newsapi.org/v2/top-headlines';
 
   /// 헤드라인 뉴스 가져오기

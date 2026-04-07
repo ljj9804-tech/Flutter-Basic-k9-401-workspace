@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import '../model/food_item.dart';
 
@@ -16,7 +17,8 @@ class FoodController with ChangeNotifier {
     notifyListeners(); // UI에 로딩 시작 알림
 
     final queryParams = {
-      'serviceKey': '본인 api 키',
+      // 'serviceKey': '본인키',
+      'serviceKey':  dotenv.env['PUBLIC_DATA_SERVICE_KEY'] ?? '',
       'pageNo': '1',
       'numOfRows': '100',
       'resultType': 'json',

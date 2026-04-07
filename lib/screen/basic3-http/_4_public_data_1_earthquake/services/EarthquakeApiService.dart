@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import '../models/EarthquakeInfo.dart';
 
@@ -9,8 +10,10 @@ class EarthquakeApiService {
   // ✅ 디코딩된 원본 키 사용 (Uri가 자동으로 인코딩해줌)
   // 기존: 'ALRX9...%2F...' → ❌ 이중 인코딩 발생
   // 수정: 'ALRX9.../...'  → ✅ Uri가 올바르게 인코딩
-  static const String _serviceKey =
-      '본인의 api 키2';
+
+  // static const String _serviceKey =
+  //     '본인키';
+  static final String _serviceKey = dotenv.env['PUBLIC_DATA_SERVICE_KEY'] ?? '';
 
 
   static Future<List<EarthquakeInfo>> fetchEarthquakes({
